@@ -2,7 +2,7 @@
 
 A simple pubsub mechanism for Ember.js
 
-[![Build Status](https://travis-ci.org/intercom/ember-pubsub.svg)](https://travis-ci.org/intercom/ember-pubsub)
+[![Build Status](https://travis-ci.org/GavinJoyce/ember-pubsub.svg)](https://travis-ci.org/GavinJoyce/ember-pubsub)
 
 Questions? Ping me [@gavinjoyce](https://twitter.com/gavinjoyce)
 
