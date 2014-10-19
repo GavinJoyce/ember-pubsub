@@ -10,6 +10,12 @@ Questions? Ping me [@gavinjoyce](https://twitter.com/gavinjoyce)
 
 TODO
 
+## TODOs
+
+* [ ] Readme
+* [ ] Tests
+* [ ] Sample app
+
 ## Development Instructions
 
 * `git clone` this repository
