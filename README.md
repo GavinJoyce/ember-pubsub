@@ -1,25 +1,22 @@
-# Ember-pubsub
+# ember-pubsub
 
-This README outlines the details of collaborating on this Ember addon.
+A simple pubsub mechanism for Ember.js
 
-## Installation
+[![Build Status](https://travis-ci.org/intercom/ember-pubsub.svg)](https://travis-ci.org/intercom/ember-pubsub)
+
+Questions? Ping me [@gavinjoyce](https://twitter.com/gavinjoyce)
+
+## Usage Instructions
+
+TODO
+
+## Development Instructions
 
 * `git clone` this repository
 * `npm install`
 * `bower install`
 
-## Running
+### Running
 
 * `ember server`
 * Visit your app at http://localhost:4200.
-
-## Running Tests
-
-* `ember test`
-* `ember test --server`
-
-## Building
-
-* `ember build`
-
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
