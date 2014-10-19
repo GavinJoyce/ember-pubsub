@@ -1,5 +1,6 @@
 {
   "name": "ember-pubsub",
+  "description": "A simple pubsub mechanism for Ember.js",
   "version": "0.1.0",
   "directories": {
     "doc": "doc",
