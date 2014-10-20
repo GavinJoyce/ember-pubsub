@@ -2,7 +2,7 @@
 
 A simple pubsub mechanism for Ember.js
 
-[![Build Status](https://travis-ci.org/GavinJoyce/ember-pubsub.svg)](https://travis-ci.org/GavinJoyce/ember-pubsub)
+[![Build Status](https://travis-ci.org/GavinJoyce/ember-pubsub.svg?branch=master)](https://travis-ci.org/GavinJoyce/ember-pubsub)
 
 Questions? Ping me [@gavinjoyce](https://twitter.com/gavinjoyce)
 
@@ -29,10 +29,6 @@ pubsub.publish('sayHello', 'Alex'); // => hello Alex
 pubsub.unsubscribe('sayHello');
 
 ```
-
-## TODOs
-
-* [ ] Tests
 
 ## Development Instructions
 
