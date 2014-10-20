@@ -4,15 +4,15 @@ import PubSub from 'ember-pubsub/pubsub';
 export default Em.ArrayController.extend({
   setup: function() {
     var pubsub = PubSub.create();
-    var self = this;
-    pubsub.subscribe('red', function(data) {
-      self.get('content').pushObject({ color: data.color });
+
+    pubsub.subscribe('red', this, function(data) {
+      this.get('content').pushObject({ color: data.color });
     });
-    pubsub.subscribe('blue', function(data) {
-      self.get('content').pushObject({ color: data.color });
+    pubsub.subscribe('blue', this, function(data) {
+      this.get('content').pushObject({ color: data.color });
     });
-    pubsub.subscribe('green', function(data) {
-      self.get('content').pushObject({ color: data.color });
+    pubsub.subscribe('green', this, function(data) {
+      this.get('content').pushObject({ color: data.color });
     });
     this.set('pubsub', pubsub);
   }.on('init'),

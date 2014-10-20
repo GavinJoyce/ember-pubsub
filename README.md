@@ -6,15 +6,33 @@ A simple pubsub mechanism for Ember.js
 
 Questions? Ping me [@gavinjoyce](https://twitter.com/gavinjoyce)
 
+## Installation
+
+This is an Ember CLI addon, to install:
+
+`npm install ember-pubsub --save`
+
 ## Usage Instructions
 
-TODO
+```javascript
+
+import PubSub from 'ember-pubsub/pubsub';
+
+var pubsub = PubSub.create();
+
+pubsub.subscribe('sayHello', this, function(name) {
+  console.log('hello ' + name);
+});
+
+pubsub.publish('sayHello', 'Alex'); // => hello Alex
+
+pubsub.unsubscribe('sayHello');
+
+```
 
 ## TODOs
 
-* [ ] Readme
 * [ ] Tests
-* [ ] Sample app
 
 ## Development Instructions
 
