@@ -1,3 +1,11 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<h2 id='title'>ember-pubsub</h2>
 
-{{outlet}}
+<button {{action 'publishColor' 'red'}} class='red'>Red</button>
+<button {{action 'publishColor' 'blue'}} class='blue'>Blue</button>
+<button {{action 'publishColor' 'green'}} class='green'>Green</button>
+
+<ul>
+{{#each log in content}}
+  <li>{{log.color}}</li>
+{{/each}}
+</ul>
