@@ -10,23 +10,37 @@ Questions? Ping me [@gavinjoyce](https://twitter.com/gavinjoyce)
 
 This is an Ember CLI addon, to install:
 
-`npm install ember-pubsub --save`
+`npm install ember-pubsub --save-dev`
 
 ## Usage Instructions
 
 ```javascript
 
-import PubSub from 'ember-pubsub/pubsub';
+// app/controllers/example.js
+import Ember.Controller.extend({
 
-var pubsub = PubSub.create();
+	pubsub: Ember.inject.service(),
 
-pubsub.subscribe('sayHello', this, function(name) {
-  console.log('hello ' + name);
+	setup: Ember.on('init', function() {
+	    var pubsub = this.get('pubsub');
+
+	    pubsub.subscribe('sayHello', this, function(name) {
+  			console.log('hello ' + name);
+		});
+	}),
+
+	actions: {
+	    
+	    hello: function() {
+	        this.get('pubsub').publish('sayHello', 'Alex'); // => hello Alex
+	    },
+
+	    noMoreHellos: function() {
+			this.get('pubsub').unsubscribe('sayHello');
+	    }
+	}
 });
 
-pubsub.publish('sayHello', 'Alex'); // => hello Alex
-
-pubsub.unsubscribe('sayHello');
 
 ```
 
@@ -40,3 +54,6 @@ pubsub.unsubscribe('sayHello');
 
 * `ember server`
 * Visit your app at http://localhost:4200.
+
+### Test
+* `npm run test`
