@@ -1,8 +1,10 @@
 # ember-pubsub
 
-A simple pubsub mechanism for Ember.js
-
 [![Build Status](https://travis-ci.org/GavinJoyce/ember-pubsub.svg?branch=master)](https://travis-ci.org/GavinJoyce/ember-pubsub)
+[![npm version](https://badge.fury.io/js/ember-pubsub.svg)](http://badge.fury.io/js/ember-index)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-pubsub.svg)](http://emberobserver.com/addons/ember-pubsub) 
+
+A simple pubsub mechanism for Ember.js
 
 Questions? Ping me [@gavinjoyce](https://twitter.com/gavinjoyce)
 
@@ -56,4 +58,7 @@ import Ember.Controller.extend({
 * Visit your app at http://localhost:4200.
 
 ### Test
-* `npm run test`
+`npm run test`
+
+## License
+MIT
