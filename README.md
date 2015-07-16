@@ -1,8 +1,10 @@
 # ember-pubsub
 
-A simple pubsub mechanism for Ember.js
-
 [![Build Status](https://travis-ci.org/GavinJoyce/ember-pubsub.svg?branch=master)](https://travis-ci.org/GavinJoyce/ember-pubsub)
+[![npm version](https://badge.fury.io/js/ember-pubsub.svg)](http://badge.fury.io/js/ember-index)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-pubsub.svg)](http://emberobserver.com/addons/ember-pubsub) 
+
+A simple pubsub mechanism for Ember.js
 
 Questions? Ping me [@gavinjoyce](https://twitter.com/gavinjoyce)
 
@@ -10,23 +12,37 @@ Questions? Ping me [@gavinjoyce](https://twitter.com/gavinjoyce)
 
 This is an Ember CLI addon, to install:
 
-`npm install ember-pubsub --save`
+`npm install ember-pubsub --save-dev`
 
 ## Usage Instructions
 
 ```javascript
 
-import PubSub from 'ember-pubsub/pubsub';
+// app/controllers/example.js
+import Ember.Controller.extend({
 
-var pubsub = PubSub.create();
+	pubsub: Ember.inject.service(),
 
-pubsub.subscribe('sayHello', this, function(name) {
-  console.log('hello ' + name);
+	setup: Ember.on('init', function() {
+	    var pubsub = this.get('pubsub');
+
+	    pubsub.subscribe('sayHello', this, function(name) {
+  			console.log('hello ' + name);
+		});
+	}),
+
+	actions: {
+	    
+	    hello: function() {
+	        this.get('pubsub').publish('sayHello', 'Alex'); // => hello Alex
+	    },
+
+	    noMoreHellos: function() {
+			this.get('pubsub').unsubscribe('sayHello');
+	    }
+	}
 });
 
-pubsub.publish('sayHello', 'Alex'); // => hello Alex
-
-pubsub.unsubscribe('sayHello');
 
 ```
 
@@ -40,3 +56,9 @@ pubsub.unsubscribe('sayHello');
 
 * `ember server`
 * Visit your app at http://localhost:4200.
+
+### Test
+`npm run test`
+
+## License
+MIT

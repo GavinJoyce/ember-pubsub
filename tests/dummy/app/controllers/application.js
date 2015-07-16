@@ -1,24 +1,38 @@
-import Em from 'ember';
-import PubSub from 'ember-pubsub/pubsub';
+import Ember from 'ember';
 
-export default Em.ArrayController.extend({
-  setup: function() {
-    var pubsub = PubSub.create();
+export default Ember.Controller.extend({
 
-    pubsub.subscribe('red', this, function(data) {
-      this.get('content').pushObject({ color: data.color });
-    });
-    pubsub.subscribe('blue', this, function(data) {
-      this.get('content').pushObject({ color: data.color });
-    });
-    pubsub.subscribe('green', this, function(data) {
-      this.get('content').pushObject({ color: data.color });
-    });
-    this.set('pubsub', pubsub);
-  }.on('init'),
-  actions: {
-    publishColor: function(color) {
-      this.get('pubsub').publish(color, { color: color });
+    pubsub: Ember.inject.service(),
+
+    setup: Ember.on('init', function() {
+        var pubsub = this.get('pubsub');
+
+        pubsub.subscribe('red', this, function(data) {
+            this.get('log').pushObject({
+                color: data.color
+            });
+        });
+        pubsub.subscribe('blue', this, function(data) {
+            this.get('log').pushObject({
+                color: data.color
+            });
+        });
+        pubsub.subscribe('green', this, function(data) {
+            this.get('log').pushObject({
+                color: data.color
+            });
+        });
+
+        this.set('log', Ember.A([]));
+    }),
+
+    log: null,
+
+    actions: {
+        publishColor: function(color) {
+            this.get('pubsub').publish(color, {
+                color: color
+            });
+        }
     }
-  }
 });
